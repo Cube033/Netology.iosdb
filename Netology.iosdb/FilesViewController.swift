@@ -7,17 +7,41 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FilesViewController: UIViewController {
     
     var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     
+    var observer: NSKeyValueObservation?
+    
     var contentArray: [URL] {
         do {
-            return try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
+            let userDefaults = UserDefaults.standard
+            let sortingTypeIsASC = userDefaults.bool(forKey: "sortingTypeIsASC")
+            var arrayURL = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
+            if sortingTypeIsASC {
+                arrayURL.sort(by: { $0.description < $1.description })
+            } else {
+                arrayURL.sort(by: { $0.description > $1.description })
+            }
+            return arrayURL
         } catch {
             let emptyArray: [URL] = []
             return emptyArray
         }
+    }
+    
+    private(set) var coordinator: MainCoordinator
+    
+    init(coordinator: MainCoordinator){
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+        observer = UserDefaults.standard.observe(\.sortingTypeIsASC, options: [.initial, .new], changeHandler: { (defaults, change) in
+                self.fileManagerTableView.reloadData()
+            })
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -69,7 +93,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension FilesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let item = contentArray[indexPath.row]
@@ -83,7 +107,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension FilesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         contentArray.count
     }
@@ -96,7 +120,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate {
+extension FilesViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let imageURL = info[.imageURL] as? URL {
@@ -115,6 +139,12 @@ extension ViewController: UIImagePickerControllerDelegate {
     }
 }
 
-extension ViewController: UINavigationControllerDelegate {
+extension FilesViewController: UINavigationControllerDelegate {
     
+}
+
+extension UserDefaults {
+    @objc dynamic var sortingTypeIsASC: Bool {
+        return bool(forKey: "sortingTypeIsASC")
+    }
 }

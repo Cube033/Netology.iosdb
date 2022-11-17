@@ -8,16 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		0A28BC4F2910E27B00AE0B30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28BC4E2910E27B00AE0B30 /* AppDelegate.swift */; };
-		0A28BC532910E27B00AE0B30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28BC522910E27B00AE0B30 /* ViewController.swift */; };
+		0A28BC532910E27B00AE0B30 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28BC522910E27B00AE0B30 /* FilesViewController.swift */; };
 		0A28BC582910E27C00AE0B30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A28BC572910E27C00AE0B30 /* Assets.xcassets */; };
+		0A42502E291CD9ED00090DD2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42502D291CD9ED00090DD2 /* MainCoordinator.swift */; };
+		0A425031291CDB6600090DD2 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A425030291CDB6600090DD2 /* CoordinatorProtocol.swift */; };
+		0A425033291CE09F00090DD2 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A425032291CE09F00090DD2 /* MainTabBarViewController.swift */; };
+		0A425036291E4A7E00090DD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A425035291E4A7E00090DD2 /* LoginViewController.swift */; };
+		0A425039291E4E9C00090DD2 /* ScreenFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A425038291E4E9C00090DD2 /* ScreenFlow.swift */; };
+		0A42503B2921454300090DD2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42503A2921454300090DD2 /* SettingsViewController.swift */; };
+		0A42503D292148C300090DD2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42503C292148C300090DD2 /* CustomButton.swift */; };
+		0A42503F29236D0E00090DD2 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42503E29236D0E00090DD2 /* KeyChainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A28BC4B2910E27B00AE0B30 /* Netology.iosdb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netology.iosdb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A28BC4E2910E27B00AE0B30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A28BC522910E27B00AE0B30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A28BC522910E27B00AE0B30 /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		0A28BC572910E27C00AE0B30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A28BC5C2910E27C00AE0B30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A42502D291CD9ED00090DD2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		0A425030291CDB6600090DD2 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		0A425032291CE09F00090DD2 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		0A425035291E4A7E00090DD2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0A425038291E4E9C00090DD2 /* ScreenFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenFlow.swift; sourceTree = "<group>"; };
+		0A42503A2921454300090DD2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0A42503C292148C300090DD2 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		0A42503E29236D0E00090DD2 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +66,44 @@
 		0A28BC4D2910E27B00AE0B30 /* Netology.iosdb */ = {
 			isa = PBXGroup;
 			children = (
+				0A425037291E4E8200090DD2 /* Factory */,
+				0A425034291E4A1700090DD2 /* Access */,
 				0A28BC4E2910E27B00AE0B30 /* AppDelegate.swift */,
-				0A28BC522910E27B00AE0B30 /* ViewController.swift */,
+				0A28BC522910E27B00AE0B30 /* FilesViewController.swift */,
+				0A42503A2921454300090DD2 /* SettingsViewController.swift */,
+				0A42502F291CDB3900090DD2 /* Coordinators */,
 				0A28BC572910E27C00AE0B30 /* Assets.xcassets */,
 				0A28BC5C2910E27C00AE0B30 /* Info.plist */,
 			);
 			path = Netology.iosdb;
+			sourceTree = "<group>";
+		};
+		0A42502F291CDB3900090DD2 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0A42502D291CD9ED00090DD2 /* MainCoordinator.swift */,
+				0A425030291CDB6600090DD2 /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0A425034291E4A1700090DD2 /* Access */ = {
+			isa = PBXGroup;
+			children = (
+				0A425035291E4A7E00090DD2 /* LoginViewController.swift */,
+				0A42503E29236D0E00090DD2 /* KeyChainService.swift */,
+			);
+			path = Access;
+			sourceTree = "<group>";
+		};
+		0A425037291E4E8200090DD2 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				0A425032291CE09F00090DD2 /* MainTabBarViewController.swift */,
+				0A42503C292148C300090DD2 /* CustomButton.swift */,
+				0A425038291E4E9C00090DD2 /* ScreenFlow.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,8 +175,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A28BC532910E27B00AE0B30 /* ViewController.swift in Sources */,
+				0A425036291E4A7E00090DD2 /* LoginViewController.swift in Sources */,
+				0A425033291CE09F00090DD2 /* MainTabBarViewController.swift in Sources */,
+				0A42503D292148C300090DD2 /* CustomButton.swift in Sources */,
+				0A28BC532910E27B00AE0B30 /* FilesViewController.swift in Sources */,
+				0A425039291E4E9C00090DD2 /* ScreenFlow.swift in Sources */,
+				0A42502E291CD9ED00090DD2 /* MainCoordinator.swift in Sources */,
+				0A425031291CDB6600090DD2 /* CoordinatorProtocol.swift in Sources */,
+				0A42503F29236D0E00090DD2 /* KeyChainService.swift in Sources */,
 				0A28BC4F2910E27B00AE0B30 /* AppDelegate.swift in Sources */,
+				0A42503B2921454300090DD2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
